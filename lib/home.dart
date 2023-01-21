@@ -48,7 +48,7 @@ class _HomeState extends State<Home> {
                 child: Padding(
               padding: const EdgeInsets.only(left: 16),
               child: Text(
-                "What Would You Like?",
+                "What Would Like?",
                 style: GoogleFonts.bodoniModa(
                   color: Colors.black,
                   fontSize: 25,
