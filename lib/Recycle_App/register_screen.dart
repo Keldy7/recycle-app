@@ -23,7 +23,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
     // return Container();
     return SafeArea(
       child: Scaffold(
-          body: SizedBox(
+          body: 
+          SizedBox(
             height: MediaQuery.of(context).size.height,
             width: double.infinity,
             child: SingleChildScrollView(

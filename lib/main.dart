@@ -1,30 +1,29 @@
 import 'package:flutter/material.dart';
-// import 'package:projetcours/utils/data_user.dart';
-import 'package:projetcours/welcome_screen.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:projetcours/details_screen.dart';
+import 'package:projetcours/onboarding_screen.dart';
 
 void main() {
-  //await UserData.init();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Application',
-      // style: GoogleFonts.poppins(
-      //     fontSize: 20,
-      //     fontWeight: FontWeight.w500,
-      //     color: Colors.black)
-      theme: ThemeData(
-        scaffoldBackgroundColor: Color(0xfff9F8FD),
-        primaryColor: Color(0xff1a7205),
-        textTheme:
-            Theme.of(context).textTheme.apply(bodyColor: Color(0xff3C4046)),
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: const WelcomeScreen(),
+      title: 'Application de vin',
+      home: const OnBoardingScreen(),
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white,
+        primaryColor: const Color(0xff1a7205),
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+        textTheme:  GoogleFonts.bodoniModaTextTheme(
+          Theme.of(context).textTheme,
+        ),
+      ),
     );
   }
 }

@@ -1,0 +1,219 @@
+padding: const EdgeInsets.only(
+            left: 20 * 2,
+            right: 20 * 2,
+            bottom: 10,
+          ),
+          height: 50,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                offset: const Offset(0, -2),
+                blurRadius: 5,
+                color: const Color(0xff0C9869).withOpacity(0.38),
+              ),
+            ],
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              IconButton(
+                icon: const Icon(Icons.home),
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => const OnBoardingScreen()));
+                },
+              ),
+              IconButton(
+                icon: const Icon(Icons.notifications),
+                onPressed: () {},
+              ),
+              IconButton(
+                icon: const Icon(Icons.settings),
+                onPressed: () {},
+              ),
+            ],
+          ),
+      
+
+
+
+
+
+
+
+
+
+      //bottomNavigationBar
+       Container(
+            padding: const EdgeInsets.all(12),
+            margin: const EdgeInsets.symmetric(horizontal: 24),
+            decoration: const BoxDecoration(
+              color: Color.fromARGB(255, 78, 19, 31) ,
+              borderRadius: BorderRadius.all(Radius.circular(24)),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                GestureDetector(
+                  onTap: () {},
+                  child: const SizedBox(
+                    height: 36,
+                    width: 36,
+                    child: Icon(
+                      Icons.home_outlined,
+                      color: Colors.white
+                    )
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {},
+                  child: const SizedBox(
+                    height: 36,
+                    width: 36,
+                    child: Icon(
+                      Icons.favorite_outline_outlined,
+                      color: Colors.white
+                    )
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {},
+                  child: const SizedBox(
+                    height: 36,
+                    width: 36,
+                    child: Icon(
+                      Icons.settings_outlined,
+                      color: Colors.white
+                    )
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {},
+                  child: const SizedBox(
+                    height: 36,
+                    width: 36,
+                    child: Icon(
+                      Icons.person_outline_rounded,
+                      color: Colors.white
+                    )
+                  ),
+                ),
+              ],
+            ),
+          )
+        
+
+
+
+
+//home page card
+Padding(
+            padding: const EdgeInsets.only(left: 15.0, right: 15.0),
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  flex: 2,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 2),
+                        child: RichText(
+                          text: const TextSpan(children: [
+                            TextSpan(
+                              text: "lastPlayedGame",
+                              style: TextStyle(color: Colors.black)
+                              //style: headingTwoTextStyle
+                            ),
+                            TextSpan(text: '\n'),
+                            TextSpan(
+                              text: " hours played",
+                              style: TextStyle(color: Colors.black)
+                              //style: bodyTextStyle
+                            ),
+                          ]),
+                        ),
+                      ),
+                      Stack(
+                        children: <Widget>[
+                          ClipRRect(
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(2)),
+                            child: Image.asset("assets/logoApp.png",
+                                height: 100, width: 100, fit: BoxFit.cover),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+                
+
+
+
+
+
+
+
+
+
+
+                 Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 12.0,
+                      ),
+                      child: GridView.builder(
+                        shrinkWrap: true,
+                        primary: true,
+                        itemCount: sigleProductData.length,
+                        physics: const NeverScrollableScrollPhysics(),
+                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          childAspectRatio: 0.7,
+                        ),
+                        itemBuilder: (context, index) {
+                          var arrivalDataStore = sigleProductData[index];
+
+                          return SingleProductWidget(
+                            productImage: arrivalDataStore.productImage,
+                            productModel: arrivalDataStore.productModel,
+                            productName: arrivalDataStore.productName,
+                            productOldPrice: arrivalDataStore.productOldPrice,
+                            productPrice: arrivalDataStore.productPrice,
+                            onPressed: () {
+                              PageRouting.goToNextPage(
+                                context: context,
+                                navigateTo: DetailScreen(
+                                data: arrivalDataStore,
+                              ),
+                          );
+                        },
+                      );
+                    },
+                  ),
+                    )
+                  
+
+
+
+                  Expanded(child: ListView.builder(itemBuilder: (_, index) {
+                    return Row(
+                      children: [
+                        Container(
+                          width: 200,
+                          height: 170,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            image: const DecorationImage(
+                              image: AssetImage("assets/logoApp.png")
+                              ),
+                          )
+                        )
+                      ],
+                    );
+                  }))
+                
